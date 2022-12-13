@@ -33,7 +33,6 @@ export const ContextProvider = ({ children }) => {
     setIsClicked({ ...initialState, [clicked_item]: true }); //we added  anew prop clicked_item
 
   return (
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <StateContext.Provider
       value={{
         currentColor,
