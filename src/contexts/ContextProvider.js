@@ -29,8 +29,10 @@ export const ContextProvider = ({ children }) => {
     setThemeSettings(false);
   };
 
-  const handleClick = (clicked_item) =>
+  const handleClick = (clicked_item) => {
+    console.log(clicked_item);
     setIsClicked({ ...initialState, [clicked_item]: true }); //we added  anew prop clicked_item
+  };
 
   return (
     <StateContext.Provider
