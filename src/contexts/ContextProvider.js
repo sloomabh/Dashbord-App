@@ -20,18 +20,21 @@ export const ContextProvider = ({ children }) => {
   const setMode = (e) => {
     setCurrentMode(e.target.value);
     localStorage.setItem("themeMode", e.target.value);
+    setThemeSettings(false);
   };
 
   const setColor = (color) => {
     setCurrentColor(color);
     localStorage.setItem("colorMode", color);
+    setThemeSettings(false);
   };
 
-  const handleClick = (clicked_item) =>
-    setIsClicked({ ...initialState, [clicked_item]: true });
+  const handleClick = (clicked_item) => {
+    console.log(clicked_item);
+    setIsClicked({ ...initialState, [clicked_item]: true }); //we added  anew prop clicked_item
+  };
 
   return (
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <StateContext.Provider
       value={{
         currentColor,
