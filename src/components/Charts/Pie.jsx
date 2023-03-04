@@ -1,7 +1,16 @@
-import React from 'react';
-import { AccumulationChartComponent, AccumulationSeriesCollectionDirective, AccumulationSeriesDirective, AccumulationLegend, PieSeries, AccumulationDataLabel, Inject, AccumulationTooltip } from '@syncfusion/ej2-react-charts';
+import React from "react";
+import {
+  AccumulationChartComponent,
+  AccumulationSeriesCollectionDirective,
+  AccumulationSeriesDirective,
+  AccumulationLegend,
+  PieSeries,
+  AccumulationDataLabel,
+  Inject,
+  AccumulationTooltip,
+} from "@syncfusion/ej2-react-charts";
 
-import { useStateContext } from '../../contexts/ContextProvider';
+import { useStateContext } from "../../contexts/ContextProvider";
 
 const Doughnut = ({ id, data, legendVisiblity, height }) => {
   const { currentMode } = useStateContext();
@@ -9,12 +18,19 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
   return (
     <AccumulationChartComponent
       id={id}
-      legendSettings={{ visible: legendVisiblity, background: 'white' }}
+      legendSettings={{ visible: legendVisiblity, background: "white" }}
       height={height}
-      background={currentMode === 'Dark' ? '#33373E' : '#fff'}
+      background={currentMode === "Dark" ? "#33373E" : "#fff"}
       tooltip={{ enable: true }}
     >
-      <Inject services={[AccumulationLegend, PieSeries, AccumulationDataLabel, AccumulationTooltip]} />
+      <Inject
+        services={[
+          AccumulationLegend,
+          PieSeries,
+          AccumulationDataLabel,
+          AccumulationTooltip,
+        ]}
+      />
       <AccumulationSeriesCollectionDirective>
         <AccumulationSeriesDirective
           name="Sale"
@@ -29,12 +45,12 @@ const Doughnut = ({ id, data, legendVisiblity, height }) => {
           explodeOffset="10%"
           explodeIndex={2}
           dataLabel={{
-            visible: true,
-            name: 'text',
-            position: 'Inside',
+            visible: false,
+            name: "text",
+            position: "Inside",
             font: {
-              fontWeight: '600',
-              color: '#fff',
+              fontWeight: "600",
+              color: "#fff",
             },
           }}
         />
