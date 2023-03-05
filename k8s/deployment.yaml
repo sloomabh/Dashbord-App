@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dashboard1
+  name: dashboard
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dashboard1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: dashboard1
+    spec:
+      containers:
+        - image: salimbh/ecommerce:v1
+          name: ecommerce-dashboard
+          ports:
+            - containerPort: 3000
+status: {}
+#$ kubectl create -f  dashbord.yml
+#$ kubectl get pods
